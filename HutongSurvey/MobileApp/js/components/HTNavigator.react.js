@@ -2,13 +2,16 @@ var React = require('react');
 var Store = require('../stores/HTNavigateStore');
 var Actions = require('../actions/HTNavigateAction');
 
-
 var Timer = React.createClass({
   getInitialState: function() {
     return {total: 0};
   },
   tick: function() {
     this.setState({total: this.state.total + 1});
+    if(this.state.total == 7200){
+		clearInterval(this.interval);
+		Actions.expire();
+	}
   },
   componentDidMount: function() {
     this.interval = setInterval(this.tick, 1000);
@@ -30,6 +33,7 @@ var Timer = React.createClass({
 	};
 
 	var seconds = this.state.total;
+	
 	var formattedString = formatSeconds(seconds);
     return (
       <h2 className="ui header">TIME ELAPSED: {formattedString}</h2>
@@ -58,13 +62,13 @@ var DirectionItem = React.createClass({
 	  var text, buttonClasses, iconClasses;
 	  
 	  if(this.state.mood == 'P'){
-	  	text = 'GO LEFT' + this.props.index;
+	  	text = 'GO LEFT';
 	  	buttonClasses = "ui left labeled icon button";
 	  	iconClasses="left green arrow icon";
 	  }
 	  else if(this.state.mood == 'N')
 	  {
-	  	text = 'GO RIGHT' + this.props.index;;
+	  	text = 'GO RIGHT';
 	  	buttonClasses = "ui right labeled icon button";
 	  	iconClasses="right red arrow icon";
 	  }
@@ -115,7 +119,7 @@ var HTNavigator = React.createClass({
 
   handleItemClick: function(event){
   	console.log(event);
-  	if(event.i==0)
+  	if(event==0 || event.i==0)
     {
     	Actions.delete(0);
     }
@@ -133,21 +137,21 @@ var HTNavigator = React.createClass({
 	    var text, buttonClasses, iconClasses;
 	  
 	    if(mood == 'P'){
-	  	  text = 'GO LEFT ' + i;
-	  	  buttonClasses = "ui left labeled icon button";
+	  	  text = 'GO LEFT ';
+	  	  buttonClasses = "ui big left labeled icon button";
 	  	  iconClasses="left green arrow icon";
 	    }
 	    else if(mood == 'N')
 	    {
-	  	  text = 'GO RIGHT ' + i;;
-	  	  buttonClasses = "ui right labeled icon button";
+	  	  text = 'GO RIGHT';
+	  	  buttonClasses = "ui right big labeled icon button";
 	  	  iconClasses="right red arrow icon";
 	    }
 
         directionItems.push(
     		<li>
     		  <div className="item">
-			    <button className={buttonClasses} onClick={this.handleItemClick.bind(this,{i})}>
+			    <button className={buttonClasses} onClick={this.handleItemClick.bind(this,i)}>
 		          <i className={iconClasses}></i>
 	              {text}
 			    </button>
@@ -163,18 +167,17 @@ var HTNavigator = React.createClass({
            Kinetic HUTONG
         </div>
         </h2>
-		<button className="positive ui button" onClick={this.clickPositiveMood}>Positive Button</button>
-		<button className="negative ui button" onClick={this.clickNagitiveMood}>Negative Button</button>
+		<button className="positive big ui button" onClick={this.clickPositiveMood}>Positive Button</button>
+		<button className="negative big ui button" onClick={this.clickNagitiveMood}>Negative Button</button>
         <div className="ui stacked segment">
 	    
-	    <pre>{this.state.moods}</pre>
 	    <div className="ui list">
 		    {directionItems}
 	    </div>
 	    <div>
-	    <Timer></Timer>
 	    </div>
         </div>
+	    <Timer></Timer>
 	  </div>
       </div>
     );

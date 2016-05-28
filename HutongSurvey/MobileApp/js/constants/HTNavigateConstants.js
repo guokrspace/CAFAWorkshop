@@ -14,4 +14,5 @@ var keyMirror = require('keymirror');
 module.exports = keyMirror({
   HTNAV_ADDMOOD: null,
   HTNAV_DELMOOD: null,
+  HTNAV_TIMER_EXPIRE: null
 });

@@ -14,6 +14,12 @@ var HTNavigateActions = {
 		  actionType: Constants.HTNAV_DELMOOD,
 		  index:i
 	  });
+    },
+
+    expire: function(){
+      AppDispatcher.dispatch({
+		  actionType: Constants.HTNAV_TIMER_EXPIRE
+	  });
     }
 };
 
