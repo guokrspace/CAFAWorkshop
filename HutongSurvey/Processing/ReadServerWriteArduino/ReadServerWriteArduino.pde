@@ -37,35 +37,26 @@ void draw() {
   for(int i=0; i<directions.length; i++)
   {
     String direction = directions[i];
-    if(direction.equals("0"))
+    if(direction.equals("P"))
     {
       myPort.write('P');
       println('P');
     }
-    else if(direction.equals("1"))
+    else if(direction.equals("N"))
     {
       myPort.write('N');
       println('N');
     }
     
-    delay(200);
+    delay(4000);
   }
   
-  delay(2000);
+  delay(10000);
 
 }
 
 void mousePressed() {
-
-  if (mouseX > 0 && mouseX < width/5 + circW/2 &&
-    mouseY > 0 && mouseY < height) {
-
-
-  if (mouseX > width/2 - circW/2 && mouseX< width/1.25 - circW/2 &&
-    mouseY > 0 && mouseY < height) {
-    }
-
-    }//send values to server
+  myPort.write('S');
 }
 
 void readDirections(){  

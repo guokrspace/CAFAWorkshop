@@ -1,6 +1,7 @@
 var React = require('react');
 var Store = require('../stores/HTNavigateStore');
 var Actions = require('../actions/HTNavigateAction');
+var ActionCreator = require('../actions/ActionCreator');
 
 var Timer = React.createClass({
   getInitialState: function() {
@@ -110,11 +111,11 @@ var HTNavigator = React.createClass({
   },
 
   clickPositiveMood :function(){
-  	Actions.create('P');
+  	ActionCreator.addDirection('P');
   },
 
   clickNagitiveMood :function(){
-  	Actions.create('N');
+  	ActionCreator.addDirection('N');
   },
 
   handleItemClick: function(event){
@@ -147,6 +148,8 @@ var HTNavigator = React.createClass({
 	  	  buttonClasses = "ui right labeled icon button";
 	  	  iconClasses="right red arrow icon";
 	    }
+      else
+        console.log('AAA' + mood);
 
         directionItems.push(
     		<li>
@@ -160,6 +163,8 @@ var HTNavigator = React.createClass({
     }
 
     return (
+
+
       <div className="ui middle aligned center aligned grid container">
       <div className="column">
         <h2 className="ui center header">

@@ -39,9 +39,8 @@ void setup() {
 
 void loop() {
   // if we get a valid byte, read analog ins:
-  while (Serial.available()) { // If data is available to read,
-     key = Serial.read(); // read it and store it in val
-  }
+  
+  key = Serial.read(); // read it and store it in val
 
   if(key == 'P')
     play(melody_positive);
