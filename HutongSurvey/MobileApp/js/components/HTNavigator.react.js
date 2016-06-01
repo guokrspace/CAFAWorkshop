@@ -137,20 +137,20 @@ var HTNavigator = React.createClass({
 	    var text, buttonClasses, iconClasses;
 	  
 	    if(mood == 'P'){
-	  	  text = 'GO LEFT ';
-	  	  buttonClasses = "ui big left labeled icon button";
+	  	  text = 'P';
+	  	  buttonClasses = "ui left labeled icon button";
 	  	  iconClasses="left green arrow icon";
 	    }
 	    else if(mood == 'N')
 	    {
-	  	  text = 'GO RIGHT';
-	  	  buttonClasses = "ui right big labeled icon button";
+	  	  text = 'N';
+	  	  buttonClasses = "ui right labeled icon button";
 	  	  iconClasses="right red arrow icon";
 	    }
 
         directionItems.push(
     		<li>
-    		  <div className="item">
+    		  <div className="item align left">
 			    <button className={buttonClasses} onClick={this.handleItemClick.bind(this,i)}>
 		          <i className={iconClasses}></i>
 	              {text}
@@ -160,23 +160,21 @@ var HTNavigator = React.createClass({
     }
 
     return (
-      <div className="ui middle aligned center aligned grid">
+      <div className="ui middle aligned center aligned grid container">
       <div className="column">
-        <h2 className="ui teal center header">
+        <h2 className="ui center header">
         <div className="content">
            Kinetic HUTONG
         </div>
         </h2>
-		<button className="positive big ui button" onClick={this.clickPositiveMood}>Positive Button</button>
-		<button className="negative big ui button" onClick={this.clickNagitiveMood}>Negative Button</button>
-        <div className="ui stacked segment">
+		<button className="positive ui button" onClick={this.clickPositiveMood}>Positive</button>
+		<button className="negative ui button" onClick={this.clickNagitiveMood}>Negative</button>
 	    
 	    <div className="ui list">
 		    {directionItems}
 	    </div>
 	    <div>
 	    </div>
-        </div>
 	    <Timer></Timer>
 	  </div>
       </div>

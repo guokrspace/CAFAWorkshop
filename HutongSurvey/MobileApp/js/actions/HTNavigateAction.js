@@ -21,6 +21,7 @@ var HTNavigateActions = {
 		  actionType: Constants.HTNAV_TIMER_EXPIRE
 	  });
     }
+    
 };
 
 module.exports = HTNavigateActions;
