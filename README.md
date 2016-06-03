@@ -13,12 +13,14 @@ The happy sound is a hack of a small bird toy. We use arduino connected with a T
 
 * Sad Sound:
 The sad sound is to use the Arduino to running a Melody for a Hummer.
+![](https://github.com/guokrspace/CAFAWorkshop/blob/master/HutongSurvey/Arduino/finalwiredup.jpg)
 
 ## The Mobile App
 The app is an implementation of the navigational algorithm. The goal is to use this App to guide people's navigation and collect the data. We use react to develop a webapp that can be running in the web browser or just inside Wechat. The benefit is that people don't need to install a native App and just to use Wechat to do this.
+![](https://github.com/guokrspace/CAFAWorkshop/blob/master/HutongSurvey/Arduino/mobilewebapp.jpg)
 
 ## The bridge between the Bird Sound and the Mobile App.
 For the time being, it is an computer with internnect connection. The processing proram runs on it, it retrieve data from the server that is collected by the mobile App. Based on the data, it will triggerd the Arduino to perform different sound based on the data from the server.
-
+![](https://github.com/guokrspace/CAFAWorkshop/blob/master/HutongSurvey/Arduino/birdhouse.jpg)
 
 
